@@ -5,18 +5,27 @@ public class follower : MonoBehaviour {
 
 	GameObject des;
 	Transform target;
+	public float speed = 5f;
 	// Use this for initialization
 	void Start () {
-		des = GameObject.Find ("Destination");
+		
 	}
 
 	void reachForDes () {
+		des = GameObject.Find ("Destination");
 		target = des.transform;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		Vector3 moveToDes = target.position - this.transform.LocalPosition;
-
+		reachForDes ();
+		Vector3 moveToDes = target.position - this.transform.position;
+		Debug.Log ("target pos = " + target.position);
+		float distance = speed + Time.deltaTime;
+		// also means this.transform.Translate();
+		transform.Translate (moveToDes.normalized * distance, Space.World);
+	//	The Quaternion rotation below is correct but needs some fine tuning.
+	//	Quaternion targetRotation = Quaternion.LookRotation (moveToDes);
+	//	this.transform.rotation = Quaternion.Lerp (this.transform.rotation, targetRotation, Time.deltaTime);
 	}
 }
