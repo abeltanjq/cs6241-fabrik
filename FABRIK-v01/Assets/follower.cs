@@ -20,7 +20,7 @@ public class follower : MonoBehaviour {
 	void Update () {
 		reachForDes ();
 		Vector3 moveToDes = target.position - this.transform.position;
-		Debug.Log ("target pos = " + target.position);
+	//	Debug.Log ("target pos = " + target.position);
 		float distance = speed + Time.deltaTime;
 		// also means this.transform.Translate();
 		transform.Translate (moveToDes.normalized * distance, Space.World);
