@@ -5,13 +5,13 @@ public class mouseDrag : MonoBehaviour {
 	Vector3 distanceFromCamera;
 	Vector3 posOfCamera;
 	float zDesFromCam;
-	GameObject des;
+	Transform des;
 	// Use this for initialization
 	void Start () {
-		des = GameObject.Find ("Destination");
+		des = this.transform.GetChild(0);
 		posOfCamera = Camera.main.gameObject.transform.position;
 		// fix the distance of object to camera unless there is a change in its position
-		zDesFromCam = findZdisFromCam(posOfCamera, des.transform.position);
+		zDesFromCam = findZdisFromCam(posOfCamera, des.position);
 	}
 
 	void Update () {
@@ -19,7 +19,7 @@ public class mouseDrag : MonoBehaviour {
 		// **NOT TESTED YET** Camera now cannot move
 		if (posOfCamera != Camera.main.gameObject.transform.position) {
 			posOfCamera = Camera.main.gameObject.transform.position;
-			zDesFromCam = findZdisFromCam(posOfCamera, des.transform.position);
+			zDesFromCam = findZdisFromCam(posOfCamera, des.position);
 			Debug.Log("Camera Pos Shifted. New pos = " + posOfCamera);
 		}
 

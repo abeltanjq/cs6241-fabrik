@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class FABRIK : MonoBehaviour {
+public class FABRIK_v1: MonoBehaviour {
 	// NOTE: this script is place on finger GameObject
 	GameObject des;
 	private Transform[] chain;
@@ -44,7 +44,7 @@ public class FABRIK : MonoBehaviour {
 		if (distRootToTarget > totalDistOfJoints) {
 			for (int i = 0; i < (numOfPoints - 1); i++) {
 				//dist between target and joint
-				distBtwnTargetAndJoint [i] = findDistBtwnPonts (des.transform, chain [i]);
+				distBtwnTargetAndJoint [i] = findDistBtwnPoints (des.transform, chain [i]);
 				ratio [i] = distBtwnEachJoint [i] / distBtwnTargetAndJoint [i];
 				// new joint position
 				chain [i + 1].position = (1 - ratio [i]) * chain [i].position + ratio [i] * des.transform.position;
@@ -80,7 +80,7 @@ public class FABRIK : MonoBehaviour {
 		} 
 	}
 
-	public float findDistBtwnPonts (Transform a, Transform b) {
+	public float findDistBtwnPoints (Transform a, Transform b) {
 		return (a.position - b.position).magnitude;
 	}
 }

@@ -13,6 +13,9 @@ public class CameraZoom : MonoBehaviour {
 	}
 
 	void  Update (){
+
+		// Referenced from : http://forum.unity3d.com/threads/simple-camera-zooming-script-for-absolute-newbie.72460/
+		// Start of reference
 		// -------------------Code for Zooming Out------------
 		if (Input.GetAxis("Mouse ScrollWheel") < 0)
 		{
@@ -39,6 +42,7 @@ public class CameraZoom : MonoBehaviour {
 			else
 				Camera.main.orthographic=true;
 		}
+		// End of reference
 
 		if (rotateR) {			
 			transform.RotateAround (targetLookAt.transform.position, Vector3.up, Time.deltaTime * 30);
