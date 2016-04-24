@@ -28,8 +28,6 @@ public class FABRIK_v1: MonoBehaviour {
 		// calculate the distance between each joint
 		for (int i = 0; i < (numOfPoints - 1); i++) {
 			distBtwnEachJoint [i] = (chain[i+1].position - chain[i].position).magnitude;
-		//	Debug.Log ("distance between joint "+i+" = " + distBtwnEachJoint [i]);
-
 			totalDistOfJoints += distBtwnEachJoint [i];
 		}
 	}
@@ -53,7 +51,6 @@ public class FABRIK_v1: MonoBehaviour {
 
 		else { // target is reachable
 			initialPosB = chain[0].position;
-		//	Debug.Log ("initialPosB = " + initialPosB);
 			endEffectorToTarget = (chain [numOfPoints - 1].position - des.transform.position).magnitude;
 			while (endEffectorToTarget > tolerance) {
 				//STAGE 1: Forward Reaching
@@ -67,16 +64,13 @@ public class FABRIK_v1: MonoBehaviour {
 
 				//STAGE 2: Backward Reaching
 				chain[0].position = initialPosB;
-			//	Debug.Log ("chain[0], root = " + chain[0].position);
 				for (int i = 0; i < (numOfPoints - 1); i++) {
-					
 					distBtwnTargetAndJoint [i] = (chain[i+1].position - chain [i].position).magnitude;
 					ratio [i] = distBtwnEachJoint [i] / distBtwnTargetAndJoint [i];
 					chain [i+1].position = (1 - ratio [i]) * chain [i].position + ratio [i] * chain [i+1].position;
 				}
 				endEffectorToTarget = (chain [(numOfPoints - 1)].position - des.transform.position).magnitude;
 			}
-		//	updatePosOfAllJoints ();
 		} 
 	}
 

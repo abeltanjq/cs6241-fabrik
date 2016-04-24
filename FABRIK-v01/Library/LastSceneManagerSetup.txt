@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Big Tree.unity
+- path: Assets/Scenes/Hand_FABRIK.unity
   isLoaded: 1
   isActive: 1

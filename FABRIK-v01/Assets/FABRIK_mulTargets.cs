@@ -15,11 +15,9 @@ public class FABRIK_mulTargets : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//	while (true) { // within tolerance
 		forwardReaching (root);
 		root.position = initialPosB;
 		backwardReaching (root);
-		//	}
 	}
 
 	void forwardReaching (Transform currNode) {
@@ -67,14 +65,3 @@ public class FABRIK_mulTargets : MonoBehaviour {
 		return (a.position - b.position).magnitude;
 	}
 }
-/*
-public class endEffectorAndTargetPair {
-
-	Transform endEffector;
-	Transform target;
-
-	public endEffectorAndTargetPair (Transform endEffector, Transform target) {
-		this.endEffector = endEffector;
-		this.target = target;
-	}
-}*/
