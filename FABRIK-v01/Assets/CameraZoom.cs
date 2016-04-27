@@ -45,11 +45,11 @@ public class CameraZoom : MonoBehaviour {
 		// End of reference
 
 		if (rotateR) {			
-			transform.RotateAround (targetLookAt.transform.position, Vector3.up, Time.deltaTime * 30);
+			transform.RotateAround (targetLookAt.transform.position, Vector3.down, Time.deltaTime * 30);
 		}
 
 		if (rotateL) {			
-			transform.RotateAround (targetLookAt.transform.position, Vector3.down, Time.deltaTime * 30);
+			transform.RotateAround (targetLookAt.transform.position, Vector3.up, Time.deltaTime * 30);
 		}
 
 		if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)){

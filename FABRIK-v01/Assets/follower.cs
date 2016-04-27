@@ -21,7 +21,7 @@ public class follower : MonoBehaviour {
 		reachForDes ();
 		Vector3 moveToDes = target.position - this.transform.position;
 	//	Debug.Log ("target pos = " + target.position);
-		if (moveToDes.magnitude > 0.1) {
+	if (moveToDes.magnitude > 0.1) {
 			float distance = speed + Time.deltaTime;
 			// also means this.transform.Translate();
 			transform.Translate (moveToDes.normalized * distance, Space.World);
